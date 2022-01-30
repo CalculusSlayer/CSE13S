@@ -20,14 +20,14 @@
 // Start of main function for decode algorithm.
 // Use getopt to parse through arguments.
 int main(int argc, char **argv) {
-    bool no_input = true;
+    //bool no_input = true;
     bool h_flag = false;
     bool v_flag = false;
     int infile = STDIN_FILENO;
     int outfile = STDOUT_FILENO;
     int opt = 0;
     while ((opt = getopt(argc, argv, OPTIONS)) != -1) {
-        no_input = false;
+        //no_input = false;
         switch (opt) {
         case 'h': h_flag = true; break;
         case 'v': v_flag = true; break;

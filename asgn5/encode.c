@@ -20,14 +20,14 @@
 // Start of main function.
 // Takes program arguments and process with getopt.
 int main(int argc, char **argv) {
-    bool no_input = true;
+    //bool no_input = true;
     bool h_flag = false;
     bool v_flag = false;
     int infile = STDIN_FILENO; // standard input stream
     int outfile = STDOUT_FILENO; // standard output stream
     int opt = 0;
     while ((opt = getopt(argc, argv, OPTIONS)) != -1) {
-        no_input = false;
+        //no_input = false;
         switch (opt) {
         case 'h': h_flag = true; break;
         case 'v': v_flag = true; break;
@@ -79,7 +79,7 @@ int main(int argc, char **argv) {
         }
         // Step 3 Making tree from histogram
         Node *root21 = build_tree(histogram);
-        Code table[ALPHABET] = { 0 };
+        Code table[ALPHABET] = { {0} };
         for (int count = 0; count < ALPHABET; count++) {
             if (histogram[count] > 0) {
                 unique_syms++;
