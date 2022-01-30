@@ -1,5 +1,4 @@
 #include "names.h"
-
 #include <limits.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -48,7 +47,7 @@ int main(void) {
     }
 
     // Assign the seed number to the srand function to prepare for a replicable series of "random" numbers.
-    srand(seed);
+    srandom(seed);
     int player_turn = 0;
     int pig_roll = 0;
     bool exit = false;
