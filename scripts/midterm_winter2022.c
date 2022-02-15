@@ -1,5 +1,9 @@
 #include "midterm.c"
 
+float quadratic(float x) {
+	return x * x + 1;
+}
+
 int main(void) {
 	printf("\n ******TESTING #1********* \n\n");
 	
@@ -82,7 +86,7 @@ int main(void) {
 	printf("\n\n");
 	
 	a_pointer = a0;	
-	LLfloat *new_a = map_floats(square_num, a_pointer); // Replace 'square_num' with whatever function pointer student used.
+	LLfloat *new_a = map_floats(quadratic, a_pointer); // Quadratic is a function defined as f(x) = x^2 + 1
 	a_pointer = new_a;
 	printf("Squared array:\n");
 	while ( a_pointer ) {
