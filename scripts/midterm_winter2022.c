@@ -1,6 +1,6 @@
-#include "midterm.c"	// Copy entire midterm.c file.
-						// Make sure main function is 
-						// gone in the midterm.c file.
+#include "midterm.c"	/* Copy entire midterm.c file.
+						Make sure main function is
+						gone in the midterm.c file. */
 
 /* Function pointer used
 by the linked list mapping
