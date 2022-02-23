@@ -1,9 +1,30 @@
-#include "midterm.c"
+#include "midterm.c"	// Copy entire midterm.c file.
+						// Make sure main function is 
+						// gone in the midterm.c file.
+
+/* Function pointer used
+by the linked list mapping
+function */
 
 float quadratic(float x) {
 	return x * x + 1;
 }
 
+/* Function used to free memory
+allocated for the linked list */
+
+void delete_link(LLfloat **x) {
+	if ((*x) == NULL) {
+		free(*x);
+	}
+
+	else {
+		delete_link(&((*x)->next));
+		free(*x);
+	}
+}
+
+// Test Cases for the Midterm
 int main(void) {
 	printf("\n ******TESTING #1********* \n\n");
 	
@@ -13,6 +34,8 @@ int main(void) {
 		printf("%lld ", f1[i]);
 	}
 	printf("\n\n");
+	
+	free(f1);
 
 	printf("Array of length 2 [1,1]:\n");
 	long long *f2 = fibonacci_numbers(2);
@@ -21,12 +44,16 @@ int main(void) {
 	}
 	printf("\n\n");
 	
+	free(f2);
+
 	printf("Array of length 8 [1,1,2,3,5,8,13,21]:\n");
 	long long *f8 = fibonacci_numbers(8);
 	for (int i = 0; i < 8; i++) {
 		printf("%lld ", f8[i]);
 	}
 	printf("\n\n");
+
+	free(f8);
 	
 	printf("****** TESTING #2 ******\n");
 
@@ -55,6 +82,8 @@ int main(void) {
 		printf("%d %d %d\n", p->shoe_size, p->customer_id, p->num_purchases);
 	}
 
+	free(customer_arr);
+
 	printf(" \n****TESTING #3****** \n\n");
 	LLfloat *a0 = malloc(sizeof(LLfloat));
 	LLfloat *a1 = malloc(sizeof(LLfloat));
@@ -79,7 +108,7 @@ int main(void) {
 
 	LLfloat *a_pointer = a0;
 	printf("Original array:\n");
-	while ( a_pointer ) {
+	while ( a_pointer != NULL ) {
 		printf("%f ", a_pointer->val);
 		a_pointer = a_pointer->next;
 	}
@@ -89,7 +118,7 @@ int main(void) {
 	LLfloat *new_a = map_floats(quadratic, a_pointer); // Quadratic is a function defined as f(x) = x^2 + 1
 	a_pointer = new_a;
 	printf("Squared array:\n");
-	while ( a_pointer ) {
+	while ( a_pointer != NULL ) {
 		printf("%f ", a_pointer->val);
 		a_pointer = a_pointer->next;
 	}
@@ -97,22 +126,24 @@ int main(void) {
 	
 	a_pointer = a0;
 	printf("\nOriginal array not modified?\n");
-	while ( a_pointer ) {
+	while ( a_pointer != NULL ) {
 		printf("%f ", a_pointer->val);
 		a_pointer = a_pointer->next;
 	}
 	printf("\n");
 
+	delete_link(&a0);	
+	delete_link(&new_a);
 
 	printf("\n******* TESTING #4 **********\n");
-	//printf("%lu\n", sizeof(unsigned long));
 
 	unsigned long sol4 = 10403319 & 20392939 & 99929293939;
 	unsigned long calendars4[] = {10403319, 20392939, 99929293939};
 
 	printf("Student answer: %lu\n", compute_availability(calendars4, 3));
 	printf("Expected answer: %lu\n", sol4);
+
+
 	return 0;
 }
-
 
