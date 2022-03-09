@@ -1,6 +1,6 @@
-# Assignment 6 - Public Key Cryptography
+# Public Key Cryptography
 
-This assignment is all about cryptography. There is a keygen
+This project is all about cryptography. There is a keygen
 file that can generate a public key and private key. There is
 an encyptor file that can encrypt input files onto output
 files. There is also a decryptor file that can decrypt input
