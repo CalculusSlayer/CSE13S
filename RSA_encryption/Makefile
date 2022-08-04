@@ -1,4 +1,3 @@
-# Cite: TA Sloan
 CC = clang
 CFLAGS = -Wall -Werror -Wextra -Wpedantic $(shell pkg-config --cflags gmp)
 LDFLAGS = $(shell pkg-config --libs gmp)
